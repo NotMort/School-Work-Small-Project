@@ -1,0 +1,14 @@
+{
+    "name": "mqtt-subscriber",
+    "version": "1.0.0",
+    "description": "A Node.js application to subscribe to MQTT topic and display temperature",
+    "main": "mqtt_subscriber.js",
+    "scripts": {
+      "start": "node mqtt_subscriber.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "mqtt": "^4.2.6"
+    }
+  }
+  
