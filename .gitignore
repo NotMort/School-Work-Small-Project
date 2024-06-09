@@ -95,8 +95,7 @@ Thumbs.db
 .env
 .env*.local
 
-# Docker
-docker-compose.yml
+
 
 # vercel
 .vercel
