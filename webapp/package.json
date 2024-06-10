@@ -1,0 +1,19 @@
+{
+    "name": "webapp",
+    "version": "1.0.0",
+    "description": "A web application to display temperature data in real-time",
+    "main": "src/index.js",
+    "scripts": {
+      "start": "node src/index.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "chart.js": "^4.2.1"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.22"
+    },
+    "author": "Your Name",
+    "license": "ISC"
+  }
+  

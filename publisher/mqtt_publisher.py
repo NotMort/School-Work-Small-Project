@@ -6,7 +6,7 @@ broker = "localhost"
 port = 1883
 topic = "home/temperature"
 
-client = mqtt.Client()
+client = mqtt.Client(client_id="", protocol=mqtt.MQTTv311)
 client.connect(broker, port)
 
 while True:

@@ -1,10 +1,18 @@
 const mqtt = require('mqtt');
+const MongoClient = require('mongodb').MongoClient;
 const express = require('express');
 const app = express();
 const port = 3000;
 
 const client = mqtt.connect('mqtt://localhost:1883');
-let temperature = 0;
+const mongoUrl = 'mongodb://localhost:27017';
+let db;
+
+MongoClient.connect(mongoUrl, (err, client) => {
+  if (err) throw err;
+  db = client.db('temperatureDB');
+  console.log('Connected to MongoDB');
+});
 
 client.on('connect', () => {
   console.log('Connected to MQTT broker');
@@ -16,13 +24,22 @@ client.on('connect', () => {
 });
 
 client.on('message', (topic, message) => {
-  temperature = message.toString();
-  console.log(`Received message: ${temperature} on topic: ${topic}`);
+  const temperature = parseFloat(message.toString());
+  const timestamp = new Date();
+  db.collection('temperatures').insertOne({ temperature, timestamp }, (err, res) => {
+    if (err) throw err;
+    console.log(`Saved temperature: ${temperature} at ${timestamp}`);
+  });
 });
 
-app.get('/', (req, res) => {
-  res.send(`<h1>Current Temperature: ${temperature}°C</h1>`);
+app.get('/data', (req, res) => {
+  db.collection('temperatures').find().sort({ timestamp: -1 }).limit(20).toArray((err, result) => {
+    if (err) throw err;
+    res.json(result);
+  });
 });
+
+app.use(express.static('public'));
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
