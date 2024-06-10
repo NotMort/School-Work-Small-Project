@@ -15,8 +15,6 @@ Docker je platforma za kontejnerizacijo, ki omogoča izolirano izvajanje aplikac
 - **JavaScript in Node.js**: Uporabljena za razvoj MQTT naročnika (subscriber) in spletne aplikacije.
 
 
-Seveda, tukaj je celotna dokumentacija v slovenščini, oblikovana kot README datoteka:
-
 ---
 
 # Razlika med Mosquitto in EMQX Brokerji
