@@ -19,12 +19,8 @@ Seveda, tukaj je celotna dokumentacija v slovenščini, oblikovana kot README da
 
 ---
 
-# MQTT Protokol in Razlika med Mosquitto in EMQX Brokerji
+# Razlika med Mosquitto in EMQX Brokerji
 
-## Tehnologije Uporabljene v Projektu
-
-### MQTT Protokol
-MQTT je lahkoten komunikacijski protokol, zasnovan za naprave z omejenimi viri in omrežja z nizko pasovno širino. Deluje po principu naročnika in objavitelja, kjer posrednik upravlja sporočila.
 
 ### Mosquitto
 Mosquitto je odprtokodni MQTT broker, ki je enostaven za uporabo in konfiguracijo. Primeren je za manjše sisteme in razvojne namene.
